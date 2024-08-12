@@ -1,0 +1,95 @@
+.cover {
+  position: relative;
+}
+.cover__title {
+  // font-family: Eloquia Display;
+  font-size: 96px;
+  font-weight: 600;
+  line-height: 29.52px;
+  text-align: left;
+}
+.cover__containerOfButtons {
+  display: flex;
+  gap: 20px;
+}
+.cover__button {
+  background: #F0DAFB;
+  border: 1.33px solid #9A46C4;
+  padding: 10.64px;
+  gap: 13.3px;
+  border-radius: 10.64px;
+  border: 1.33px 0px 0px 0px;
+  // font-family: Eloquia Display;
+  font-size: 18.63px;
+  font-weight: 600;
+  line-height: 39.28px;
+  text-align: left;
+  color: #6F2F8F;
+}
+.cover__titleSec {
+  // font-family: Gochi Hand; 
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 29.52px;
+  letter-spacing: 2.2142858505249023px;
+  text-align: left;
+  color: linear-gradient(92.69deg, #F06E66 2.23%, #E5678B 11.08%, #DC51DD 21.62%, #9956F2 31.6%, #6F3ECA 38.38%);
+  // border: 1px solid;
+  // border-image-source: linear-gradient(92.69deg, #FFA49E 2.23%, #FF9FBB 11.08%, #FE9EFF 21.62%, #E894FF 24.26%, #C79DFF 31.6%, #BB97FF 38.38%);
+}
+.cover__eclipse_01 {
+  position: absolute;
+  // background-color: #FFE198;
+  background-image: url(../../images/ecllipse24.svg);
+  width: 923.42px;
+  height: 550.19px;
+  top: 234.28px;
+  left: 1110.13px;
+  // opacity: 0.5;
+  transform: rotate(128.24deg);
+  // filter: blur(5px);
+}
+.cover__eclipse_02 {
+  position: absolute;
+  // background-color: #D015FF;
+  background-image: url(../../images/ecllipse23.svg);
+  width: 407.78px;
+  height: 80.8px;
+  top: 12.71px;
+  left: 705.09px;
+  // opacity: 0.5;
+  transform: rotate(104.54deg);
+}
+.cover__eclipse_03 {
+  position: absolute;
+  // background-color: #5D85FF;
+  background-image: url(../../images/ecllipse27.svg);
+  width: 188.51px;
+  height: 372.08px;
+  top: 135.56px;
+  left: 502.85px;
+  // opacity: 0.5;
+  transform: rotate(175.19deg);
+}
+.cover__eclipse_04 {
+  position: absolute;
+  // background-color: #82FFF9;
+  background-image: url(../../images/ecllipse25.svg);
+  width: 424.47px;
+  height: 331.94px;
+  top: 138.64px;
+  left: 699.87px;
+  // opacity: 0.5;
+  transform: rotate(120.33deg); 
+}
+.cover__eclipse_05 {
+  position: absolute;
+  // background-color: #7F9FFF;
+  background-image: url(../../images/ecllipse26.svg);
+  width: 440.98px;
+  height: 440.98px;
+  top: 535.84px;
+  left: 537.61px;
+  // opacity: 0.5;
+  transform: rotate(135.56deg); 
+}

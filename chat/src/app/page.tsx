@@ -1,9 +1,11 @@
-import styles from "./page.module.css";
-
-export default function Home() {
-  return (
-    <main className={styles.main}>
-      
-    </main>
-  );
+import "../assets/styles/index.module.scss";
+import "../assets/styles/index.css";
+import { ClientOnly } from './client'
+ 
+export function generateStaticParams() {
+  return []
+}
+ 
+export default function Page() {
+  return <ClientOnly />
 }
