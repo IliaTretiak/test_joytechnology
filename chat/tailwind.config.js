@@ -13,7 +13,11 @@ module.exports = {
       'loose': '14.26px',
       'normal': '18px',
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'message_tail': 'url(../assets/images/message_tail.svg)',
+      },
+    },
   },
   plugins: [],
 }
