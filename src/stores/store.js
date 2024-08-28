@@ -1,9 +1,9 @@
 import {create} from 'zustand';
 
 const useStore = create(set => ({
-  count: 0,
-  increment: () => set(state => ({ count: state.count + 1 })),
-  decrement: () => set(state => ({ count: state.count - 1 }))
+  messager: [],
+  addMessage: (value) => set(state => ({ ...state, messager: [...state.messager]})),
+  // addTodo: (text) => set((state) => ({ ...state, todos: [...state.todos, { text, completed: false }] })),
 }));
 
 export default useStore
