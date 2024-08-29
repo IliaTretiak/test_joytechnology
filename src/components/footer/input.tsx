@@ -1,5 +1,11 @@
 
-const Input = ({
+import { FC } from 'react';
+interface InputProps {
+    changeMessage?: any;
+    message?: string | undefined;
+  }
+
+const Input:FC<InputProps> = ({
     changeMessage,
     message
 }) => {

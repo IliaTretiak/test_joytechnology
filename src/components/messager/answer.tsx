@@ -1,7 +1,15 @@
 import check from '../../assets/images/check.svg'
 import Image from 'next/image'
 
-const Answer = ({
+import { FC } from 'react';
+interface MessageProps {
+    name?: string | undefined;
+    post?: string | undefined;
+    src?: any;
+
+  }
+
+const Answer:FC<MessageProps> = ({
     name,
     post,
     src

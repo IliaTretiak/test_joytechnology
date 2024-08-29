@@ -4,16 +4,17 @@ import sand from '../../assets/images/plane.svg'
 import useStore from '../../stores/store'
 import Upload from './upload'
 import { useState } from 'react';
+import { ChangeEvent } from "react";
+
 
 const Footer = () => {
     const storage = window.localStorage; 
-    const [message, setMessage] = useState(storage.getItem("message"));
+    const [message, setMessage] = useState<any>(storage.getItem("message"))
 
+    // const { addMessage } = useStore();
 
-    const { addMessage } = useStore();
-
-    const changeMessage = (e) => {
-        const value = e.target.value;
+    const changeMessage = (e: ChangeEvent) => {
+        const value = (e.target as HTMLInputElement).value;
         storage.setItem('message', value);
         setMessage(value);
     };
@@ -33,7 +34,7 @@ const Footer = () => {
                 <Upload />
                 <img
                 className='pr-[20px]'
-                onClick={(message) => addMessage(message)}
+                // onClick={(message) => addMessage(message)}
                 src={sand.src} alt='отправить сообщение'>
                 </img>
             </fieldset>
