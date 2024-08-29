@@ -8,7 +8,7 @@ const Page = () => {
   const { messager } = useStore();
 
     return (
-      <div className='flex flex-col h-[100vw]'>
+      <div className='font-jost flex flex-col h-[100vw]'>
             <Header />
             <Bubble />
             <div className='flex items-end'>

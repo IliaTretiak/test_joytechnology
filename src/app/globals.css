@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    @font-face {
+      font-family: 'Jost', sans-serif;
+      font-display: swap;
+      src: url(/fonts/static/Jost-Regular.ttf) format('ttf');
+    }
+  }
