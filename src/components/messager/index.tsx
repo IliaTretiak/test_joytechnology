@@ -8,8 +8,9 @@ const Bubble = () => {
             <span className='py-[17px] flex justify-center text-sm text-[#666668] font-normal leading-loose'>
                 {new Date().toLocaleDateString('en-US', { month: 'numeric', day: 'numeric', year: 'numeric' })}
             </span>
+            
             <Message />
-            <Message />
+            {/* <Message />
             {
                 Users
                 .map((user) => 
@@ -67,7 +68,7 @@ const Bubble = () => {
                         src={user.src}
                         />)      
                     }) 
-            }
+            } */}
              {
                 Users
                 .map((user) => 

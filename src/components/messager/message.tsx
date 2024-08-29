@@ -8,9 +8,10 @@ const Message = () => {
             text-[#FFFFFF]
             rounded-md relative py-1 px-2 pr-[15px] 
             flex justify-between flex-col 
+            max-w-[48%]
             '>
                 <span>
-                    message
+                    message message  message message message message message message message message message message message message message message message message message
                 </span>
                 <div className="flex justify-end">
                     <div className='flex justify-center gap-[4px]'>

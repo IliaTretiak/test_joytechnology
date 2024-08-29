@@ -30,6 +30,7 @@ const Answer:FC<MessageProps> = ({
             text-[#2C2C2E]
             rounded-md relative py-1 px-2 pr-[15px] 
             grid grid-cols-2 gap-x-px-2
+            max-w-[48%]
             '>
                 <div>
                     <div className='flex gap-[10px] align-baseline'>
@@ -41,10 +42,10 @@ const Answer:FC<MessageProps> = ({
                         </span>
                     </div>
                     <span className='text-base text-[#2C2C2E] font-normal leading-normal'>
-                        Answer
+                        Answer Answer Answer Answer Answer Answer Answer Answer Answer
                     </span>
                 </div>
-                <div className="flex gap-[4px] items-end ">
+                <div className="flex gap-[4px] items-end justify-end">
                         <span className='flex items-end'>
                             {new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}
                         </span>
