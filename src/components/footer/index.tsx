@@ -6,18 +6,21 @@ import Upload from './upload'
 import { useState } from 'react';
 import { ChangeEvent } from "react";
 
-
 const Footer = () => {
     const storage = window.localStorage; 
     const [message, setMessage] = useState<any>(storage.getItem("message"))
 
-    // const { addMessage } = useStore();
+    const { messager, addMessage } = useStore();
 
     const changeMessage = (e: ChangeEvent) => {
         const value = (e.target as HTMLInputElement).value;
         storage.setItem('message', value);
         setMessage(value);
     };
+    const sendMessage = (e: { preventDefault: () => void; }) : any => {
+        e.preventDefault();
+        addMessage(message)
+      }
 
     return (
         <div className='w-[100%] pt-[60px]'>
@@ -30,13 +33,17 @@ const Footer = () => {
                 <Input 
                 changeMessage={changeMessage}
                 message={message}
+                messager={messager}
                 />
                 <Upload />
+                <button
+                onClick={sendMessage}
+                >
                 <img
                 className='pr-[20px]'
-                // onClick={(message) => addMessage(message)}
                 src={sand.src} alt='отправить сообщение'>
                 </img>
+                </button>
             </fieldset>
         </form>
         </div>

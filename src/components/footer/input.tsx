@@ -3,11 +3,13 @@ import { FC } from 'react';
 interface InputProps {
     changeMessage?: any;
     message?: string | undefined;
+    messager?: any;
   }
 
 const Input:FC<InputProps> = ({
     changeMessage,
-    message
+    message,
+    messager
 }) => {
     return (
         <input

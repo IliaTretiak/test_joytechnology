@@ -2,10 +2,8 @@
 import Header from '../components/header/index'
 import Bubble from '../components/messager/index'
 import Footer from '../components/footer'
-import useStore from '../stores/store'
 
 const Page = () => {
-  const { messager } = useStore();
 
     return (
       <div className='grid grid-rows-1 grid-flow-col'>
@@ -15,7 +13,6 @@ const Page = () => {
               <div className='flex items-end'>
               <Footer />
               </div>
-              {messager}
         </div>
       </div>
     )

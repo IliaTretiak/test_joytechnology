@@ -1,6 +1,8 @@
+import useStore from '../../stores/store'
 import check from '../../assets/images/check.svg'
 
 const Message = () => {
+        const { messager } = useStore();
     return (
         <div className="flex justify-end pl-20 pr-[51px]">
             <div className='
@@ -11,7 +13,7 @@ const Message = () => {
             max-w-[48%]
             '>
                 <span>
-                    message message  message message message message message message message message message message message message message message message message message
+                    {messager}
                 </span>
                 <div className="flex justify-end">
                     <div className='flex justify-center gap-[4px]'>
