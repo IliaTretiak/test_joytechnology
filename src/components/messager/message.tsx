@@ -4,6 +4,9 @@ import pen from '../../assets/images/pen.svg'
 
 const Message = () => {
         const { messager } = useStore();
+
+        
+
     return (
         <div className="flex justify-end pl-20 pr-[51px]">
             <div className='

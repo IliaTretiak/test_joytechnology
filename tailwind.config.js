@@ -16,7 +16,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         'message_tail': 'url(../assets/images/message_tail.svg)',
-      },
+      }
     },
   },
   plugins: [],

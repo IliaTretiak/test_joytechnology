@@ -20,6 +20,7 @@ const Footer = () => {
     const sendMessage = (e: { preventDefault: () => void; }) : any => {
         e.preventDefault();
         addMessage(message)
+        setMessage("");
       }
 
     return (

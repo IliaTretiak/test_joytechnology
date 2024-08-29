@@ -1,15 +1,42 @@
 import Message from './message'
 import Answer from './answer'
 import Users from '../../../public/data/users'
+import Footer from '../footer/index'
 
 const Bubble = () => {
     return (
+        <>
         <div className='flex flex-col gap-2 overflow-auto h-[100%]'>
             <span className='py-[17px] flex justify-center text-sm text-[#666668] font-normal leading-loose'>
                 {new Date().toLocaleDateString('en-US', { month: 'numeric', day: 'numeric', year: 'numeric' })}
             </span>
             
             <Message />
+             {
+                Users
+                .map((user) => 
+                    {
+                        if (user.id == 1)
+                        return (
+                        <Answer 
+                        key={user.id}
+                        name={user.name}
+                        post={user.post}
+                        src={user.src}
+                        />)      
+                    }) 
+            }
+
+        </div>
+        <div className='flex items-end'>
+            <Footer />
+        </div>
+        </>
+    )
+}
+
+export default Bubble;
+
             {/* <Message />
             {
                 Users
@@ -69,24 +96,3 @@ const Bubble = () => {
                         />)      
                     }) 
             } */}
-             {
-                Users
-                .map((user) => 
-                    {
-                        if (user.id == 1)
-                        return (
-                        <Answer 
-                        key={user.id}
-                        name={user.name}
-                        post={user.post}
-                        src={user.src}
-                        />)      
-                    }) 
-            }
-
-        </div>
-    )
-}
-
-export default Bubble;
-

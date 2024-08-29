@@ -1,5 +1,6 @@
 import check from '../../assets/images/check.svg'
 import Image from 'next/image'
+import indicator from '../../assets/images/indicator.svg'
 
 import { FC } from 'react';
 interface MessageProps {
@@ -15,7 +16,7 @@ const Answer:FC<MessageProps> = ({
     src
 }) => {
     return (
-        <div className="flex justify-start pr-20 pl-[51px] gap-1">
+        <div className="flex justify-start pr-20 pl-[51px] gap-1 relative">
             <div>
             <Image
             // src="/images/avatar_01.png"
@@ -23,6 +24,13 @@ const Answer:FC<MessageProps> = ({
             width={24}
             height={24}
             alt="Picture of the author"
+            />  
+            <Image
+            src={indicator.src}
+            className='absolute left-[67px] top-4'
+            width={10}
+            height={10}
+            alt="онлайн индикатор"
             />
             </div>
             <div className='
@@ -42,19 +50,23 @@ const Answer:FC<MessageProps> = ({
                         </span>
                     </div>
                     <span className='text-base text-[#2C2C2E] font-normal leading-normal'>
-                        Answer Answer Answer Answer Answer Answer Answer Answer Answer
+                        Answer Answer Answer Answer Answer 
                     </span>
                 </div>
                 <div className="flex gap-[4px] items-end justify-end">
+    
+                    <div className='flex items-center'>
                         <span className='flex items-end'>
                             {new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}
                         </span>
-                        <div className='relative'>
+                        <div className='flex relative'>
                             <img className='absolute left-[8px]' width={16} height={8} src={check.src} alt='статус сообщения'>
                             </img>
                             <img width={16} height={8} src={check.src} alt='статус сообщения'>
                             </img>
                         </div>
+                    </div>
+           
                 </div>
             </div>
         </div>
