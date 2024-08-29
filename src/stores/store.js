@@ -1,7 +1,7 @@
 import {create} from 'zustand';
 
 const useStore = create(set => ({
-  messager: [],
+  messager: ['Hello, World!'],
   addMessage: (message) => {
     set((state) => ({ 
       // ...state, 
