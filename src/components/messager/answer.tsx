@@ -1,12 +1,17 @@
 import check from '../../assets/images/check.svg'
 import Image from 'next/image'
 
-const Answer = () => {
+const Answer = ({
+    name,
+    post,
+    src
+}) => {
     return (
         <div className="flex justify-start pr-20 pl-[51px] gap-1">
             <div>
             <Image
-            src="/images/avatar_01.png"
+            // src="/images/avatar_01.png"
+            src={src}
             width={24}
             height={24}
             alt="Picture of the author"
@@ -21,10 +26,10 @@ const Answer = () => {
                 <div>
                     <div className='flex gap-[10px] align-baseline'>
                         <span className='text-base text-[#2C2C2E] font-semibold leading-normal'>
-                            Name
+                            {name}
                         </span>
                         <span className='text-sm text-[#666668] font-normal leading-loose'>
-                            Post
+                            {post}
                         </span>
                     </div>
                     <span className='text-base text-[#2C2C2E] font-normal leading-normal'>

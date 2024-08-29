@@ -5,7 +5,7 @@ const Input = ({
 }) => {
     return (
         <input
-        className="outline-0 w-[100%]"
+        className="outline-0 w-[80vw]"
         type='text' 
         name='message'
         placeholder='Start typing...'

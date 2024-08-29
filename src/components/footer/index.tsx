@@ -19,9 +19,12 @@ const Footer = () => {
     };
 
     return (
-        <form className="flex items-center border-2 border-solid shadow-sm border-[#E5E5EA] h-12 w-[100%]">
+        <div className='w-[100%] pt-[60px]'>
+        <form className="flex items-center border-2 border-solid shadow-sm border-[#E5E5EA] h-12 ">
             <fieldset className='flex items-center gap-4'>
-                <img src={smile.src} alt='смайлы'>
+                <img
+                className='pl-[20px]'
+                src={smile.src} alt='смайлы'>
                 </img>
                 <Input 
                 changeMessage={changeMessage}
@@ -29,11 +32,14 @@ const Footer = () => {
                 />
                 <Upload />
                 <img
+                className='pr-[20px]'
                 onClick={(message) => addMessage(message)}
                 src={sand.src} alt='отправить сообщение'>
                 </img>
             </fieldset>
         </form>
+        </div>
+
     )
 }
 export default Footer;
