@@ -5,9 +5,6 @@ module.exports = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
   ],  theme: {
-    fontFamily: {
-      'jost': ['Jost'],
-    },
     fontSize: {
       sm: '12px',
       base: '14px',

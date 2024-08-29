@@ -4,8 +4,13 @@
 
 @layer base {
     @font-face {
-      font-family: 'Jost', sans-serif;
+      font-family: 'Jost';
+      font-style: normal;
+      /* font-weight: 400; */
       font-display: swap;
-      src: url(/fonts/static/Jost-Regular.ttf) format('ttf');
+      src: url(/public/fonts/static/Jost-Medium.ttf) format('ttf');
+    }
+    html {
+      font-family: "Jost", sans-serif;
     }
   }
