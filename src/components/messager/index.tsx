@@ -5,6 +5,7 @@ import Footer from './footer'
 import useStore from '../../stores/store'
 import { useState } from 'react';
 import { ChangeEvent } from "react";
+import dayjs from 'dayjs'
 
 const Bubble = () => {
     const storage = window.localStorage; 
@@ -29,7 +30,7 @@ const Bubble = () => {
         <>
         <div className='flex flex-col gap-2 overflow-auto h-[100%]'>
             <span className='py-[17px] flex justify-center text-sm text-[#666668] font-normal leading-loose'>
-                {new Date().toLocaleDateString('en-US', { month: 'numeric', day: 'numeric', year: 'numeric' })}
+                {dayjs().startOf('month').add(29, 'day').set('year', 2024).format('MM/DD/YYYY')}
             </span>
             <Message 
             editMessage={editMessage}

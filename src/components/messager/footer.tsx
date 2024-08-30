@@ -1,6 +1,5 @@
 import Input from './input'
 import smile from '../../assets/images/smile.svg'
-import sand from '../../assets/images/plane.svg'
 import Upload from './upload'
 import { FC } from 'react';
 import { useState } from "react";

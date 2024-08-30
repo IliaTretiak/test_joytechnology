@@ -1,6 +1,7 @@
 import check from '../../assets/images/check.svg'
 import Image from 'next/image'
 import indicator from '../../assets/images/indicator.svg'
+import dayjs from 'dayjs'
 
 import { FC } from 'react';
 interface MessageProps {
@@ -57,7 +58,7 @@ const Answer:FC<MessageProps> = ({
     
                     <div className='flex items-center'>
                         <span className='flex items-end'>
-                            {new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}
+                            {dayjs().format('HH:mm A')}
                         </span>
                         <div className='flex relative'>
                             <img className='absolute left-[8px]' width={16} height={8} src={check.src} alt='статус сообщения'>
