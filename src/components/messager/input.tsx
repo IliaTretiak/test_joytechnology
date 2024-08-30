@@ -12,7 +12,7 @@ const Input:FC<InputProps> = ({
 }) => {
     return (
         <input
-        className="outline-0 w-[90vw]"
+        className="outline-0 w-[100%]"
         type='text' 
         name='message'
         placeholder='Start typing...'

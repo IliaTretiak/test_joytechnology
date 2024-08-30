@@ -19,9 +19,9 @@ const Footer:FC<InputProps> = ({
 }) => {
     return (
         <>
-        <div className='w-[100%] pt-[60px]'>
-        <form className="flex items-center border-2 border-solid shadow-sm border-[#E5E5EA] h-12 ">
-            <fieldset className='flex items-center gap-4'>
+        <div className='pt-[60px]'>
+        <form className="">
+            <fieldset className='flex justify-between items-center gap-4 w-[auto] border-2 border-solid shadow-sm border-[#E5E5EA] h-12 '>
                 <img
                 className='pl-[20px]'
                 src={smile.src} alt='смайлы'>
@@ -31,19 +31,22 @@ const Footer:FC<InputProps> = ({
                 message={message}
                 messager={messager}
                 />
+                <div className='pr-[20px] flex gap-[16px]'>
                 <Upload />
                 <button
                 onClick={sendMessage}
                 >
                 <img
-                className='pr-[20px]'
+                className='w-[16px] h-[14px]'
                 src={sand.src} alt='отправить сообщение'>
                 </img>
                 </button>
+                </div>
             </fieldset>
         </form>
         </div>
 
+  
         </>
 
 

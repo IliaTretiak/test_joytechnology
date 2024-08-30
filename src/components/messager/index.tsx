@@ -48,16 +48,13 @@ const Bubble = () => {
                         />)      
                     }) 
             }
-
         </div>
-        <div className='flex items-end'>
-            <Footer 
-            message={message}
-            messager={messager}
-            changeMessage={changeMessage}
-            sendMessage={sendMessage}
-            />
-        </div>
+        <Footer 
+        message={message}
+        messager={messager}
+        changeMessage={changeMessage}
+        sendMessage={sendMessage}
+        />
         </>
     )
 }
