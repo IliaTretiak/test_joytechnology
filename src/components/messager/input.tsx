@@ -8,8 +8,7 @@ interface InputProps {
 
 const Input:FC<InputProps> = ({
     changeMessage,
-    message,
-    messager
+    message
 }) => {
     return (
         <input

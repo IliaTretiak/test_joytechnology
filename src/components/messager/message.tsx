@@ -1,12 +1,16 @@
 import useStore from '../../stores/store'
 import check from '../../assets/images/check.svg'
 import pen from '../../assets/images/pen.svg'
+import { FC } from 'react';
 
-const Message = () => {
-        const { messager } = useStore();
+interface InputProps {
+    editMessage?: any;
+  }
 
-        
-
+const Message:FC<InputProps> = ({
+    editMessage
+}) => {
+    const { messager, addMessage } = useStore();
     return (
         <div className="flex justify-end pl-20 pr-[51px]">
             <div className='
@@ -21,7 +25,9 @@ const Message = () => {
                 </span>
             
                 <div className="flex justify-between">
-                    <div>
+                    <div
+                    onClick={editMessage}
+                    >
                         <img width={16} height={8} src={pen.src} alt='редактировать сообщение'></img>
                     </div>
                     <div className='flex justify-center gap-[4px]'>

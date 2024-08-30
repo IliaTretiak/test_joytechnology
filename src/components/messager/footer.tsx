@@ -1,29 +1,24 @@
 import Input from './input'
 import smile from '../../assets/images/smile.svg'
 import sand from '../../assets/images/plane.svg'
-import useStore from '../../stores/store'
 import Upload from './upload'
-import { useState } from 'react';
-import { ChangeEvent } from "react";
+import { FC } from 'react';
 
-const Footer = () => {
-    const storage = window.localStorage; 
-    const [message, setMessage] = useState<any>(storage.getItem("message"))
+interface InputProps {
+    changeMessage?: any;
+    sendMessage?: any;
+    messager?: any;
+    message?: string | undefined;
+  }
 
-    const { messager, addMessage } = useStore();
-
-    const changeMessage = (e: ChangeEvent) => {
-        const value = (e.target as HTMLInputElement).value;
-        storage.setItem('message', value);
-        setMessage(value);
-    };
-    const sendMessage = (e: { preventDefault: () => void; }) : any => {
-        e.preventDefault();
-        addMessage(message)
-        setMessage("");
-      }
-
+const Footer:FC<InputProps> = ({
+    changeMessage,
+    sendMessage,
+    message,
+    messager,
+}) => {
     return (
+        <>
         <div className='w-[100%] pt-[60px]'>
         <form className="flex items-center border-2 border-solid shadow-sm border-[#E5E5EA] h-12 ">
             <fieldset className='flex items-center gap-4'>
@@ -48,6 +43,9 @@ const Footer = () => {
             </fieldset>
         </form>
         </div>
+
+        </>
+
 
     )
 }
