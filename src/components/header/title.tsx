@@ -6,7 +6,7 @@ const Title = () => {
                 🦄 Team Unicorns
             </h2>
             <span 
-            className='text-sm text-[#666668] font-semibold leading-loose'>
+            className='text-center text-sm text-[#666668] font-semibold leading-loose'>
                 last seen 45 minutes ago
             </span>
         </div>
