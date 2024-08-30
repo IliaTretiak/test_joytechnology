@@ -50,8 +50,8 @@ const Answer:FC<MessageProps> = ({
                             {post}
                         </span>
                     </div>
-                    <span className='text-base text-[#2C2C2E] font-normal leading-normal'>
-                        Answer Answer Answer Answer Answer 
+                    <span className='text-base hyphens-auto text-[#2C2C2E] font-normal leading-normal'>
+                        Answer Answer 
                     </span>
                 </div>
                 <div className="flex gap-[4px] items-end justify-end">
@@ -60,12 +60,6 @@ const Answer:FC<MessageProps> = ({
                         <span className='flex items-end'>
                             {dayjs().format('HH:mm A')}
                         </span>
-                        <div className='flex relative'>
-                            <img className='absolute left-[8px]' width={16} height={8} src={check.src} alt='статус сообщения'>
-                            </img>
-                            <img width={16} height={8} src={check.src} alt='статус сообщения'>
-                            </img>
-                        </div>
                     </div>
            
                 </div>

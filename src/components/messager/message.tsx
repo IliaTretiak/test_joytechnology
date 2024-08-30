@@ -21,7 +21,7 @@ const Message:FC<InputProps> = ({
             flex justify-between flex-col 
             max-w-[48%]
             '>
-                <span>
+                <span className='hyphens-auto'>
                     {messager}
                 </span>
             

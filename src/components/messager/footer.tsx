@@ -10,6 +10,7 @@ interface InputProps {
     sendMessage?: any;
     messager?: any;
     message?: string | undefined;
+    handleChange?: any;
   }
 
 const Footer:FC<InputProps> = ({
@@ -17,6 +18,7 @@ const Footer:FC<InputProps> = ({
     sendMessage,
     message,
     messager,
+    handleChange,
 }) => {
         
         const [isHover, setisHover] = useState('');
@@ -44,7 +46,9 @@ const Footer:FC<InputProps> = ({
                 messager={messager}
                 />
                 <div className='pr-[20px] flex gap-[16px] w-[100px]'>
-                <Upload />
+                <Upload 
+                handleChange={handleChange}
+                />
                 <button
                 onClick={sendMessage}
                 >

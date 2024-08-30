@@ -26,11 +26,19 @@ const Bubble = () => {
         addMessage(message)
         setMessage("");
     }
+
+    const data = new FormData();
+    const handleChange = (e: ChangeEvent) => {
+        const input= e.target as HTMLInputElement;
+        const file: File = (input.files as FileList)[0];
+            data.append("file", file);
+    } 
+
     return (
         <>
         <div className='flex flex-col gap-2 overflow-auto h-[100%]'>
             <span className='py-[17px] flex justify-center text-sm text-[#666668] font-normal leading-loose'>
-                {dayjs().startOf('month').add(29, 'day').set('year', 2024).format('MM/DD/YYYY')}
+                {dayjs().format('MM/DD/YYYY')}
             </span>
             <Message 
             editMessage={editMessage}
@@ -55,6 +63,7 @@ const Bubble = () => {
         messager={messager}
         changeMessage={changeMessage}
         sendMessage={sendMessage}
+        handleChange={handleChange}
         />
         </>
     )
