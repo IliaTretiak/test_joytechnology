@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { ChangeEvent } from "react";
 import dayjs from 'dayjs'
 
+
 const Bubble = () => {
     const storage = window.localStorage; 
     const [message, setMessage] = useState<any>(storage.getItem("message"))
@@ -41,9 +42,19 @@ const Bubble = () => {
             <span className='py-[17px] flex justify-center text-sm text-[#666668] font-normal leading-loose'>
                 {dayjs().format('MM/DD/YYYY')}
             </span>
-            <Message 
+            {
+                messager
+                    .map((item: any, key: any) => 
+                    <Message 
+                    key={key}
+                    item={item.item}
+                    editMessage={editMessage}
+                    />
+                )
+            }
+            {/* <Message 
             editMessage={editMessage}
-            />
+            /> */}
              {
                 Users
                 .map((user) => 

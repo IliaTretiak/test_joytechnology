@@ -3,9 +3,12 @@ import {create} from 'zustand';
 const useStore = create(set => ({
   messager: ['Hello, World!'],
   addMessage: (message) => {
-    set(() => ({ 
+    set((state) => ({ 
+      // ...state, 
+      // messager: [...state.messager, message]}))},
       messager: [message]}))},
-
 }));
+
+
 
 export default useStore;

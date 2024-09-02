@@ -7,16 +7,20 @@ import dayjs from 'dayjs'
 
 interface InputProps {
     editMessage?: any;
+    item?: any;
+    key?: any
   }
 
 const Message:FC<InputProps> = ({
-    editMessage
+    editMessage,
+    item,
+    key
 }) => {
-    const { messager, addMessage } = useStore();
+    const { messager } = useStore();
     return (
         <div className="flex justify-end pl-20 pr-[51px]">
             <div className='
-            bg-[#007AFF] 
+            bg-[#007AFF;] 
             text-[#FFFFFF]
             rounded-md relative py-1 px-2 pr-[15px] 
             flex justify-between flex-col 
@@ -50,10 +54,9 @@ const Message:FC<InputProps> = ({
                     </div>
                 </div>
             </div>
-        </div>
-
-
+        </div>              
     )
+
 }
 
 export default Message;
