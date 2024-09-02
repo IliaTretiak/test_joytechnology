@@ -1,6 +1,7 @@
 import useStore from '../../stores/store'
 import check from '../../assets/images/check.svg'
 import pen from '../../assets/images/pen.svg'
+import tail from '../../assets/images/tail.svg'
 import { FC } from 'react';
 import dayjs from 'dayjs'
 
@@ -38,6 +39,13 @@ const Message:FC<InputProps> = ({
                             </img>
                             <img width={16} height={8} src={check.src} alt='статус сообщения'>
                             </img>
+                            <img
+                            className='absolute bottom-[32px] left-[25px]'
+                            src={tail.src}
+                            width={16}
+                            height={16}
+                            alt=' '
+                            ></img>
                         </div>
                     </div>
                 </div>

@@ -2,6 +2,8 @@ import check from '../../assets/images/check.svg'
 import Image from 'next/image'
 import indicator from '../../assets/images/indicator.svg'
 import dayjs from 'dayjs'
+import tail from '../../assets/images/tail_grey.svg'
+
 
 import { FC } from 'react';
 interface MessageProps {
@@ -17,7 +19,7 @@ const Answer:FC<MessageProps> = ({
     src
 }) => {
     return (
-        <div className="flex justify-start pr-20 pl-[51px] gap-1 relative">
+        <div className="flex justify-start pr-20 pl-[51px] gap-5 relative">
             <div>
             <Image
             // src="/images/avatar_01.png"
@@ -34,6 +36,13 @@ const Answer:FC<MessageProps> = ({
             alt="онлайн индикатор"
             />
             </div>
+            <img
+            className='absolute bottom-[30px] left-[83px]'
+            src={tail.src}
+            width={16}
+            height={16}
+            alt=' '
+            ></img>
             <div className='
             bg-[#F2F2F7] 
             text-[#2C2C2E]

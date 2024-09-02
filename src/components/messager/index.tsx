@@ -10,6 +10,7 @@ import dayjs from 'dayjs'
 const Bubble = () => {
     const storage = window.localStorage; 
     const [message, setMessage] = useState<any>(storage.getItem("message"))
+    
 
     const { messager, addMessage } = useStore();
 

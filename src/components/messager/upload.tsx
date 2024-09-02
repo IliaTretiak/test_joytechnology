@@ -17,8 +17,8 @@ const Upload:FC<InputProps> = ({
                 />
                 <label htmlFor="profile_pic">    
                 <img 
-                className='cursor-pointer	'
-                onClick={handleChange}
+                // className='cursor-pointer	'
+                // onClick={handleChange}
                 src={dog.src} alt='загрузить изображение'>
                 </img>
                 </label>
