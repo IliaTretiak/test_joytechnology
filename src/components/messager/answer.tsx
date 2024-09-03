@@ -1,4 +1,3 @@
-import check from '../../assets/images/check.svg'
 import Image from 'next/image'
 import indicator from '../../assets/images/indicator.svg'
 import dayjs from 'dayjs'

@@ -1,12 +1,6 @@
 import dog from '../../assets/images/dog.svg'
-import { FC } from 'react';
 
-interface InputProps {
-    handleChange?: any;
-  }
-
-const Upload:FC<InputProps> = ({
-    handleChange,
+const Upload = ({
 }) => {
     return (
             <div>

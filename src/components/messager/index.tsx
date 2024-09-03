@@ -1,85 +1,57 @@
 import Message from './message'
-import Answer from './answer'
-import Users from '../../../public/data/users'
 import Footer from './footer'
 import useStore from '../../stores/store'
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { ChangeEvent } from "react";
 import dayjs from 'dayjs'
 
-
 const Bubble = () => {
     const storage = window.localStorage; 
-    const [message, setMessage] = useState<any>(storage.getItem("message"))
-    
+    const [message, setMessage] = useState<any>(storage.getItem("message"))    
+    const [editer, setEditer] = useState<any>()
+    const [activeEdites, setActiveEdites] = useState<any>(false)
 
-    const { messager, addMessage } = useStore();
+    const { messager, addMessage, correctMessage } = useStore();
 
     const changeMessage = (e: ChangeEvent) => {
         const value = (e.target as HTMLInputElement).value;
         storage.setItem('message', value);
         setMessage(value);
-    };
-    const editMessage = (e: ChangeEvent) => {
-        setMessage(messager);
+    };  
+    const editMessage = (item: any) => {
+        setEditer(messager.indexOf(item))
+        setMessage(item);
+        setActiveEdites(true)
     };
     const sendMessage = (e: { preventDefault: () => void; }) : any => {
-        e.preventDefault();
-        addMessage(message)
+        e.preventDefault(); 
+        activeEdites ? correctMessage(editer, message) : addMessage(message)
         setMessage("");
+        setActiveEdites(false)
     }
 
-    const data = new FormData();
-    const handleChange = (e: ChangeEvent) => {
-        const input= e.target as HTMLInputElement;
-        const file: File = (input.files as FileList)[0];
-            data.append("file", file);
-    } 
-    // const [activeAncwer, setActiveAnswer] = useState<any>(false)
-    // useEffect(() => {
-    //     setTimeout(() => setActiveAnswer((prev: any) => prev = true), 1000)
-    //   }, [messager])
-
     return (
-        <>
-        {/* <div className='flex flex-col gap-2 overflow-auto h-[100%]'> */}
+        <form>
             <span className='py-[17px] flex justify-center text-sm text-[#666668] font-normal leading-loose'>
                 {dayjs().format('MM/DD/YYYY')}
             </span>
-            
             {
                 messager
-                    .map((item: any, key: any) => 
+                    .map((item: any) => 
                     <Message 
-                    key={key}
+                    key={item}
                     item={item}
                     editMessage={editMessage}
                     />
                 )
             }
-             {/* {activeAncwer &&
-                Users
-                .map((user) => 
-                    {
-                        if (user.id == 1)
-                        return (
-                        <Answer 
-                        key={user.id}
-                        name={user.name}
-                        post={user.post}
-                        src={user.src}
-                        />)      
-                    }) 
-            } */}
-        {/* </div> */}
         <Footer 
         message={message}
         messager={messager}
         changeMessage={changeMessage}
         sendMessage={sendMessage}
-        handleChange={handleChange}
         />
-        </>
+        </form>
     )
 }
 
