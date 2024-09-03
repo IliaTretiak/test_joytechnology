@@ -3,7 +3,7 @@ import Answer from './answer'
 import Users from '../../../public/data/users'
 import Footer from './footer'
 import useStore from '../../stores/store'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ChangeEvent } from "react";
 import dayjs from 'dayjs'
 
@@ -35,27 +35,29 @@ const Bubble = () => {
         const file: File = (input.files as FileList)[0];
             data.append("file", file);
     } 
+    // const [activeAncwer, setActiveAnswer] = useState<any>(false)
+    // useEffect(() => {
+    //     setTimeout(() => setActiveAnswer((prev: any) => prev = true), 1000)
+    //   }, [messager])
 
     return (
         <>
-        <div className='flex flex-col gap-2 overflow-auto h-[100%]'>
+        {/* <div className='flex flex-col gap-2 overflow-auto h-[100%]'> */}
             <span className='py-[17px] flex justify-center text-sm text-[#666668] font-normal leading-loose'>
                 {dayjs().format('MM/DD/YYYY')}
             </span>
+            
             {
                 messager
                     .map((item: any, key: any) => 
                     <Message 
                     key={key}
-                    item={item.item}
+                    item={item}
                     editMessage={editMessage}
                     />
                 )
             }
-            {/* <Message 
-            editMessage={editMessage}
-            /> */}
-             {
+             {/* {activeAncwer &&
                 Users
                 .map((user) => 
                     {
@@ -68,8 +70,8 @@ const Bubble = () => {
                         src={user.src}
                         />)      
                     }) 
-            }
-        </div>
+            } */}
+        {/* </div> */}
         <Footer 
         message={message}
         messager={messager}

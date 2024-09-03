@@ -22,7 +22,6 @@ const Answer:FC<MessageProps> = ({
         <div className="flex justify-start pr-20 pl-[51px] gap-5 relative">
             <div>
             <Image
-            // src="/images/avatar_01.png"
             src={src}
             width={24}
             height={24}
@@ -60,7 +59,7 @@ const Answer:FC<MessageProps> = ({
                         </span>
                     </div>
                     <span className='text-base hyphens-auto text-[#2C2C2E] font-normal leading-normal'>
-                        Answer Answer 
+                        Hello, World! 
                     </span>
                 </div>
                 <div className="flex gap-[4px] items-end justify-end">
