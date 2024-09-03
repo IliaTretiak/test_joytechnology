@@ -47,7 +47,7 @@ const Footer:FC<InputProps> = ({
                 />
                 <div className='pr-[20px] flex gap-[16px] w-[100px]'>
                 <Upload 
-                handleChange={handleChange}
+                // handleChange={handleChange}
                 />
                 <button
                 onClick={sendMessage}
