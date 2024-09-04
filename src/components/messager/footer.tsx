@@ -17,7 +17,6 @@ const Footer:FC<InputProps> = ({
     changeMessage,
     sendMessage,
     message,
-    messager,
     handleChange,
 }) => {
         
@@ -43,7 +42,6 @@ const Footer:FC<InputProps> = ({
                 <Input 
                 changeMessage={changeMessage}
                 message={message}
-                messager={messager}
                 />
                 <div className='pr-[20px] flex gap-[16px] w-[100px]'>
                 <Upload 

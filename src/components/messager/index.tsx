@@ -1,7 +1,7 @@
 import Message from './message'
 import Footer from './footer'
 import useStore from '../../stores/store'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ChangeEvent } from "react";
 import dayjs from 'dayjs'
 
@@ -10,14 +10,16 @@ const Bubble = () => {
     const [message, setMessage] = useState<any>()    
     const [editer, setEditer] = useState<any>()
     const [activeEdites, setActiveEdites] = useState<any>(false)
+    const { messager, addMessage, correctMessage } = useStore(); 
 
-    const { messager, addMessage, correctMessage } = useStore();
-
-    const changeMessage = (e: ChangeEvent) => {
+    function changeMessage(e: ChangeEvent) {
         const value = (e.target as HTMLInputElement).value;
-        storage.setItem("message", JSON.stringify(value));
         setMessage(value);
-    };  
+        storage.setItem("message", JSON.stringify(value))
+    }  
+    // useEffect ( () => { 
+    //     storage.setItem ( "message" , JSON.stringify ( testValue )); } , [ testValue ] ) ;  
+
     const editMessage = (item: any) => {
         setEditer(messager.indexOf(item))
         setMessage(item);
@@ -25,7 +27,7 @@ const Bubble = () => {
     };
     const sendMessage = (e: { preventDefault: () => void; }) : any => {
         e.preventDefault(); 
-        activeEdites ? correctMessage(editer, message) : addMessage()
+        activeEdites ? correctMessage(editer, message) : addMessage(message)
         setMessage("");
         setActiveEdites(false)
     }
