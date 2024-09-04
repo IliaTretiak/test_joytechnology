@@ -7,7 +7,7 @@ import dayjs from 'dayjs'
 
 const Bubble = () => {
     const storage = window.localStorage; 
-    const [message, setMessage] = useState<any>(storage.getItem("message"))    
+    const [message, setMessage] = useState<any>()    
     const [editer, setEditer] = useState<any>()
     const [activeEdites, setActiveEdites] = useState<any>(false)
 
@@ -15,7 +15,7 @@ const Bubble = () => {
 
     const changeMessage = (e: ChangeEvent) => {
         const value = (e.target as HTMLInputElement).value;
-        storage.setItem('message', value);
+        storage.setItem("message", JSON.stringify(value));
         setMessage(value);
     };  
     const editMessage = (item: any) => {
@@ -25,7 +25,7 @@ const Bubble = () => {
     };
     const sendMessage = (e: { preventDefault: () => void; }) : any => {
         e.preventDefault(); 
-        activeEdites ? correctMessage(editer, message) : addMessage(message)
+        activeEdites ? correctMessage(editer, message) : addMessage()
         setMessage("");
         setActiveEdites(false)
     }
