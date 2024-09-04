@@ -16,7 +16,7 @@ const Input:FC<InputProps> = ({
         type='text' 
         name='message'
         placeholder='Start typing...'
-        value={message}
+        value={message ?? ''}
         onInput={(e) => changeMessage(e)}
         />  
     )
