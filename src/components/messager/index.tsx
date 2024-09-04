@@ -17,8 +17,6 @@ const Bubble = () => {
         setMessage(value);
         storage.setItem("message", JSON.stringify(value))
     }  
-    // useEffect ( () => { 
-    //     storage.setItem ( "message" , JSON.stringify ( testValue )); } , [ testValue ] ) ;  
 
     const editMessage = (item: any) => {
         setEditer(messager.indexOf(item))
