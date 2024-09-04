@@ -49,7 +49,6 @@ const Bubble = () => {
             }
         <Footer 
         message={message}
-        messager={messager}
         changeMessage={changeMessage}
         sendMessage={sendMessage}
         />
