@@ -10,14 +10,16 @@ const Bubble = () => {
     const [message, setMessage] = useState<any>()    
     const [editer, setEditer] = useState<any>()
     const [activeEdites, setActiveEdites] = useState<any>(false)
-    const { messager, addMessage, correctMessage } = useStore(); 
+    const { messager, addMessage, correctMessage, removeMessage } = useStore(); 
 
     function changeMessage(e: ChangeEvent) {
         const value = (e.target as HTMLInputElement).value;
         setMessage(value);
         storage.setItem("message", JSON.stringify(value))
     }  
-
+    const deleteMessage = (item: any) => {
+        removeMessage(messager.indexOf(item))
+    };
     const editMessage = (item: any) => {
         setEditer(messager.indexOf(item))
         setMessage(item);
@@ -42,6 +44,7 @@ const Bubble = () => {
                     key={item}
                     item={item}
                     editMessage={editMessage}
+                    deleteMessage={deleteMessage}
                     />
                 )
             }

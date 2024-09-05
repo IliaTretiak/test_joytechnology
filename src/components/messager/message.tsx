@@ -1,5 +1,6 @@
 import check from '../../assets/images/check.svg'
 import pen from '../../assets/images/pen.svg'
+import basket from '../../assets/images/basket.svg'
 import tail from '../../assets/images/tail.svg'
 import { FC } from 'react';
 import dayjs from 'dayjs'
@@ -10,21 +11,23 @@ import users_online from '../../../public/data/users';
 interface InputProps {
     editMessage?: any;
     item?: any;
+    deleteMessage?: any;
   }
 
 const Message:FC<InputProps> = ({
     editMessage,
     item,
+    deleteMessage
 }) => {
     const [activeAnswer, setActiveAnswer] = useState<any>(true)
-    useEffect(() => {
-        setTimeout(() => setActiveAnswer((prev: any) => prev = true), 800)
-      }, [item.length !== 0])
+    // useEffect(() => {
+    //     setTimeout(() => setActiveAnswer((prev: any) => prev = true), 800)
+    //   }, [item.length !== 0])
 
     return (
         <>
             <div className="flex justify-end pl-20 pr-[51px]">
-                {item.length !== 0 &&
+                {item &&
                 <div className='
                 bg-[#007AFF;] 
                 text-[#FFFFFF]
@@ -41,6 +44,11 @@ const Message:FC<InputProps> = ({
                         onClick={() => editMessage(item)}
                         >
                             <img className='cursor-pointer' width={16} height={8} src={pen.src} alt='редактировать сообщение'></img>
+                        </div>
+                        <div
+                        onClick={() => deleteMessage(item)}
+                        >
+                            <img className='cursor-pointer' width={16} height={8} src={basket.src} alt='редактировать сообщение'></img>
                         </div>
                         <div className='flex justify-center gap-[4px]'>
                             {dayjs().format('HH:mm A')}

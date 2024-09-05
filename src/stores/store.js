@@ -12,27 +12,13 @@ let store = (set) => ({
       ...state, 
       messager: state.messager.toSpliced(editer, 1, message)
       }))},
+  removeMessage: (editer) => {
+    set((state) => ({ 
+      messager: state.messager.toSpliced(editer, 1)
+      }))},
 });
 store = persist(store, {name: "message"})
 
 const useStore = create(store);
 
-// const storage = window.localStorage; 
-
-// const useStore = create(store, set => ({
-//   messager: [JSON.parse(storage.getItem("message"))],
-//   addMessage: (message) => {
-//     set((state) => ({ 
-//       ...state, 
-//       messager: [...state.messager, JSON.parse(storage.getItem("message"))]}))},
-      
-//   correctMessage: (editer, message) => {
-//     set((state) => ({ 
-//       ...state, 
-//       messager: state.messager.toSpliced(editer, 1, message)
-//       }))},
-// }));
-
-
 export default useStore;
-// storage.setItem("message", JSON.stringify(message));
