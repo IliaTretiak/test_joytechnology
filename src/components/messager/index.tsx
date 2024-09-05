@@ -1,7 +1,7 @@
 import Message from './message'
 import Footer from './footer'
 import useStore from '../../stores/store'
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { ChangeEvent } from "react";
 import dayjs from 'dayjs'
 
@@ -10,6 +10,7 @@ const Bubble = () => {
     const [message, setMessage] = useState<any>()    
     const [editer, setEditer] = useState<any>()
     const [activeEdites, setActiveEdites] = useState<any>(false)
+
     const { messager, addMessage, correctMessage, removeMessage } = useStore(); 
 
     function changeMessage(e: ChangeEvent) {
@@ -27,7 +28,7 @@ const Bubble = () => {
     };
     const sendMessage = (e: { preventDefault: () => void; }) : any => {
         e.preventDefault(); 
-        activeEdites ? correctMessage(editer, message) : addMessage(message)
+        activeEdites ? correctMessage(editer, message) : addMessage(message, dayjs().format('HH:mm A'))
         setMessage("");
         setActiveEdites(false)
     }
@@ -40,12 +41,16 @@ const Bubble = () => {
             {
                 messager
                     .map((item: any) => 
-                    <Message 
-                    key={item}
-                    item={item}
-                    editMessage={editMessage}
-                    deleteMessage={deleteMessage}
-                    />
+                    <>  
+                        <Message 
+                        key={item}
+                        item={item.question}
+                        date={item.time}
+                        editMessage={editMessage}
+                        deleteMessage={deleteMessage}
+                        />
+                    </>
+            
                 )
             }
         <Footer 

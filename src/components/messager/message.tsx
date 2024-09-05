@@ -3,22 +3,27 @@ import pen from '../../assets/images/pen.svg'
 import basket from '../../assets/images/basket.svg'
 import tail from '../../assets/images/tail.svg'
 import { FC } from 'react';
-import dayjs from 'dayjs'
 import Answer from './answer'
 import { useState, useEffect } from 'react';
 import users_online from '../../../public/data/users';
+
 
 interface InputProps {
     editMessage?: any;
     item?: any;
     deleteMessage?: any;
+    setTime?: any;
+    editer?: any;
+    date?: any;
   }
 
 const Message:FC<InputProps> = ({
     editMessage,
     item,
-    deleteMessage
+    deleteMessage,
+    date
 }) => {
+    // const { timer } = useStore(); 
     const [activeAnswer, setActiveAnswer] = useState<any>(true)
     // useEffect(() => {
     //     setTimeout(() => setActiveAnswer((prev: any) => prev = true), 800)
@@ -51,7 +56,7 @@ const Message:FC<InputProps> = ({
                             <img className='cursor-pointer' width={16} height={8} src={basket.src} alt='редактировать сообщение'></img>
                         </div>
                         <div className='flex justify-center gap-[4px]'>
-                            {dayjs().format('HH:mm A')}
+                            {date}
                             <div className='flex justify-center relative'>
                                 <img className='absolute left-[8px] top-[5px]' width={16} height={8} src={check.src} alt='статус сообщения'>
                                 </img>
@@ -82,6 +87,7 @@ const Message:FC<InputProps> = ({
                     name={user.name}
                     post={user.post}
                     src={user.src}
+                    date={date}
                     />)      
                 }) 
             } 

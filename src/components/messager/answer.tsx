@@ -9,13 +9,14 @@ interface MessageProps {
     name?: string | undefined;
     post?: string | undefined;
     src?: any;
-
+    date?: any;
   }
 
 const Answer:FC<MessageProps> = ({
     name,
     post,
-    src
+    src,
+    date
 }) => {
     return (
         <div className="flex justify-start pr-20 pl-[51px] gap-5 relative">
@@ -65,7 +66,7 @@ const Answer:FC<MessageProps> = ({
     
                     <div className='flex items-center'>
                         <span className='flex items-end'>
-                            {dayjs().format('HH:mm A')}
+                            {date}
                         </span>
                     </div>
            
