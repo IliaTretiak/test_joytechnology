@@ -9,6 +9,7 @@ const Bubble = () => {
     const storage = window.localStorage; 
     const [message, setMessage] = useState<any>()    
     const [editer, setEditer] = useState<any>()
+    const [answer, setAnswer] = useState<any>()
     const [activeEdites, setActiveEdites] = useState<any>(false)
     const [file, setFile] = useState([])
 
@@ -22,14 +23,15 @@ const Bubble = () => {
     const deleteMessage = (count: any) => {
         removeMessage(messager.findIndex(el => el.id === count))
     };
-    const editMessage = (item: any, count: any) => {
+    const editMessage = (item: any, count: any, answer: any) => {
         setEditer(messager.findIndex(el => el.id === count))
         setMessage(item);
+        setAnswer(answer)
         setActiveEdites(true)
     };
     const sendMessage = (e: { preventDefault: () => void; }) : any => {
         e.preventDefault(); 
-        activeEdites ? correctMessage(editer, message, dayjs().format('HH:mm A')) : (message.length !== 0 ? addMessage(message, dayjs().format('HH:mm A')) : " ")
+        activeEdites ? correctMessage(editer, message, dayjs().format('HH:mm A'), answer) : (message.length !== 0 ? addMessage(message, dayjs().format('HH:mm A')) : " ")
         setMessage("");
         setActiveEdites(false)
     }

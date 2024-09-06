@@ -49,7 +49,7 @@ const Message:FC<InputProps> = ({
                 
                     <div className="flex justify-between">
                         <div
-                        onClick={() => editMessage(item, count)}
+                        onClick={() => editMessage(item, count, answer)}
                         >
                             <img className='cursor-pointer' width={16} height={8} src={pen.src} alt='редактировать сообщение'></img>
                         </div>

@@ -14,10 +14,11 @@ let store = (set) => ({
           answer: `${Math.ceil(Math.random() * 4)}`
         }],
       }))},
-  correctMessage: (editer, message, date) => {
+  correctMessage: (editer, message, date, answer) => {
     set((state) => ({ 
       ...state, 
-      messager: state.messager.toSpliced(editer, 1, {id: editer, question: message, time: date}),
+      messager: state.messager.toSpliced(editer, 1, 
+        {id: editer, question: message, time: date, answer: answer}),
       }))},
   removeMessage: (editer) => {
     set((state) => ({ 
