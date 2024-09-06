@@ -45,10 +45,11 @@ const Footer:FC<InputProps> = ({
                 />
                 <div className='pr-[20px] flex gap-[16px] w-[100px]'>
                 <Upload 
-                // handleChange={handleChange}
+                handleChange={handleChange}
                 />
                 <button
                 onClick={sendMessage}
+                type='submit'
                 >
                 <Image
                 onMouseEnter={() => onChangeColor()} 
@@ -59,6 +60,8 @@ const Footer:FC<InputProps> = ({
                 alt='отправить сообщение'
                 />
                 </button>
+                            {/* <input type='submit' name='submit' value='отправить' /> */}
+
                 </div>
             </fieldset>
         </form>

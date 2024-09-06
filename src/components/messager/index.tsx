@@ -10,6 +10,7 @@ const Bubble = () => {
     const [message, setMessage] = useState<any>()    
     const [editer, setEditer] = useState<any>()
     const [activeEdites, setActiveEdites] = useState<any>(false)
+    const [file, setFile] = useState([])
 
     const { messager, addMessage, correctMessage, removeMessage } = useStore(); 
 
@@ -28,10 +29,19 @@ const Bubble = () => {
     };
     const sendMessage = (e: { preventDefault: () => void; }) : any => {
         e.preventDefault(); 
-        activeEdites ? correctMessage(editer, message, dayjs().format('HH:mm A')) : addMessage(message, dayjs().format('HH:mm A'))
+        activeEdites ? correctMessage(editer, message, dayjs().format('HH:mm A')) : (message.length !== 0 ? addMessage(message, dayjs().format('HH:mm A')) : " ")
         setMessage("");
         setActiveEdites(false)
     }
+
+    // const data = new FormData();
+    // const handleChange = (e: ChangeEvent) => {
+    //     const input = (e.target as HTMLInputElement).files[0];
+    //     // const result = (e.target as HTMLInputElement).result
+    //     // const size = input.size
+    //     data.append("file", input);
+    //     // setFile(input.name);
+    // };
 
     return (
         <form>
@@ -57,6 +67,7 @@ const Bubble = () => {
         message={message}
         changeMessage={changeMessage}
         sendMessage={sendMessage}
+        // handleChange={handleChange}
         />
         </form>
     )

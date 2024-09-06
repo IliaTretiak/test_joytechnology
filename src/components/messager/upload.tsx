@@ -1,10 +1,12 @@
 import dog from '../../assets/images/dog.svg'
 
 const Upload = ({
+    handleChange
 }) => {
     return (
             <div>
-                <input type="file"
+                <input 
+                type="file"
                 className='hidden'
                 name="profile_pic"
                 accept="image/.pdf,.docx,.doc,.jpeg,.jpg,.odt"
@@ -12,7 +14,7 @@ const Upload = ({
                 <label htmlFor="profile_pic">    
                 <img 
                 // className='cursor-pointer	'
-                // onClick={handleChange}
+                onClick={handleChange}
                 src={dog.src} alt='загрузить изображение'>
                 </img>
                 </label>
