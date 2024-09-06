@@ -14,7 +14,7 @@ const Upload = ({
                 <label htmlFor="profile_pic">    
                 <img 
                 // className='cursor-pointer	'
-                onClick={handleChange}
+                // onClick={handleChange}
                 src={dog.src} alt='загрузить изображение'>
                 </img>
                 </label>

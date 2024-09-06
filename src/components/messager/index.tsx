@@ -34,14 +34,23 @@ const Bubble = () => {
         setActiveEdites(false)
     }
 
-    // const data = new FormData();
-    // const handleChange = (e: ChangeEvent) => {
-    //     const input = (e.target as HTMLInputElement).files[0];
-    //     // const result = (e.target as HTMLInputElement).result
-    //     // const size = input.size
-    //     data.append("file", input);
-    //     // setFile(input.name);
-    // };
+    const data = new FormData();
+    const handleChange = (e: ChangeEvent) => {
+        const input = (e.target as HTMLInputElement).files[0];
+        // const result = (e.target as HTMLInputElement).result
+        // const size = input.size
+        data.append("file", input);
+        // setFile(input.name);
+    };
+    // const handleFilesChange = (event: ChangeEvent<HTMLInputElement>) => {
+    //     const files: File[] = event.target.files
+    //       ? Array.from(event.target.files)
+    //       : [];
+    //     // selectedFiles.handleChange(files);
+    //     // onFilesSelected?.();
+      
+    //     // fileInputRef.current && (fileInputRef.current.value = '');
+    //   };
 
     return (
         <form>
@@ -57,6 +66,7 @@ const Bubble = () => {
                         count={item.id}
                         item={item.question}
                         date={item.time}
+                        answer={item.answer}
                         editMessage={editMessage}
                         deleteMessage={deleteMessage}
                         />
@@ -67,7 +77,7 @@ const Bubble = () => {
         message={message}
         changeMessage={changeMessage}
         sendMessage={sendMessage}
-        // handleChange={handleChange}
+        handleChange={handleChange}
         />
         </form>
     )

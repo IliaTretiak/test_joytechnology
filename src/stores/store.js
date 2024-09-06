@@ -11,6 +11,7 @@ let store = (set) => ({
           id: `${Math.floor(Math.random() * 100)}`,
           question: message,
           time: date,
+          answer: `${Math.ceil(Math.random() * 4)}`
         }],
       }))},
   correctMessage: (editer, message, date) => {

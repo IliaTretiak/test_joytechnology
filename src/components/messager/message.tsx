@@ -16,6 +16,7 @@ interface InputProps {
     editer?: any;
     date?: any;
     count?: any;
+    answer?: any;
   }
 
 const Message:FC<InputProps> = ({
@@ -23,7 +24,8 @@ const Message:FC<InputProps> = ({
     item,
     deleteMessage,
     date,
-    count
+    count,
+    answer
 }) => {
     const [activeAnswer, setActiveAnswer] = useState<any>(true)
     // useEffect(() => {
@@ -81,7 +83,7 @@ const Message:FC<InputProps> = ({
             users_online
             .map((user: any) => 
                 {
-                    if (user.id === 1)
+                    if (user.id == answer)
                     return (
                     <Answer 
                     key={user.id}
