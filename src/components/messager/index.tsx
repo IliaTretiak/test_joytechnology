@@ -18,17 +18,17 @@ const Bubble = () => {
         setMessage(value);
         storage.setItem("message", JSON.stringify(value))
     }  
-    const deleteMessage = (item: any) => {
-        removeMessage(messager.indexOf(item))
+    const deleteMessage = (count: any) => {
+        removeMessage(messager.findIndex(el => el.id === count))
     };
-    const editMessage = (item: any) => {
-        setEditer(messager.indexOf(item))
+    const editMessage = (item: any, count: any) => {
+        setEditer(messager.findIndex(el => el.id === count))
         setMessage(item);
         setActiveEdites(true)
     };
     const sendMessage = (e: { preventDefault: () => void; }) : any => {
         e.preventDefault(); 
-        activeEdites ? correctMessage(editer, message) : addMessage(message, dayjs().format('HH:mm A'))
+        activeEdites ? correctMessage(editer, message, dayjs().format('HH:mm A')) : addMessage(message, dayjs().format('HH:mm A'))
         setMessage("");
         setActiveEdites(false)
     }
@@ -43,14 +43,14 @@ const Bubble = () => {
                     .map((item: any) => 
                     <>  
                         <Message 
-                        key={item}
+                        key={item.id}
+                        count={item.id}
                         item={item.question}
                         date={item.time}
                         editMessage={editMessage}
                         deleteMessage={deleteMessage}
                         />
                     </>
-            
                 )
             }
         <Footer 

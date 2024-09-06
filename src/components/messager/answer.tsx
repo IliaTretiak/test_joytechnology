@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import indicator from '../../assets/images/indicator.svg'
-import dayjs from 'dayjs'
 import tail from '../../assets/images/tail_grey.svg'
 
 

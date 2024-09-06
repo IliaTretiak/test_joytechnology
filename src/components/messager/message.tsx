@@ -15,15 +15,16 @@ interface InputProps {
     setTime?: any;
     editer?: any;
     date?: any;
+    count?: any;
   }
 
 const Message:FC<InputProps> = ({
     editMessage,
     item,
     deleteMessage,
-    date
+    date,
+    count
 }) => {
-    // const { timer } = useStore(); 
     const [activeAnswer, setActiveAnswer] = useState<any>(true)
     // useEffect(() => {
     //     setTimeout(() => setActiveAnswer((prev: any) => prev = true), 800)
@@ -46,12 +47,12 @@ const Message:FC<InputProps> = ({
                 
                     <div className="flex justify-between">
                         <div
-                        onClick={() => editMessage(item)}
+                        onClick={() => editMessage(item, count)}
                         >
                             <img className='cursor-pointer' width={16} height={8} src={pen.src} alt='редактировать сообщение'></img>
                         </div>
                         <div
-                        onClick={() => deleteMessage(item)}
+                        onClick={() => deleteMessage(count)}
                         >
                             <img className='cursor-pointer' width={16} height={8} src={basket.src} alt='редактировать сообщение'></img>
                         </div>
@@ -76,7 +77,7 @@ const Message:FC<InputProps> = ({
                 }
             </div> 
             {
-            activeAnswer &&
+            // activeAnswer &&
             users_online
             .map((user: any) => 
                 {
