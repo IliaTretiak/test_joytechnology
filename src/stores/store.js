@@ -34,7 +34,6 @@ let store = (set) => ({
     set((state) => ({ 
       ...state, 
       messager: state.messager.toSpliced(editer, 1),
-      // messager: state.messager.splice(),
       }))},
 });
 store = persist(store, {name: "store"})

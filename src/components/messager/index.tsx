@@ -62,11 +62,8 @@ const Bubble = () => {
                 formData.append("image", fileSelected, fileSelected.name);
             }
     };
-    return (
-        <form>
-            <span className='py-[17px] flex justify-center text-sm text-[#666668] font-normal leading-loose'>
-                {dayjs().format('MM/DD/YYYY')}
-            </span>
+    return ( 
+        <form className='flex justify-between flex-col'>
             {
                 messager
                     .map((item: any) => 
@@ -86,7 +83,6 @@ const Bubble = () => {
                     </>
                 )
             }
-         
             <Footer 
             message={message}
             changeMessage={changeMessage}
