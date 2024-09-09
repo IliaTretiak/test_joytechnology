@@ -7,7 +7,7 @@ const Users = () => {
             {
                 users_online
                 .map((user) => 
-                <Image
+                <img
                 key={user.id}
                 className='inline-block rounded-full ring-4 ring-white' 
                 src={user.src}
