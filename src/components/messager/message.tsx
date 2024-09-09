@@ -4,7 +4,6 @@ import basket from '../../assets/images/basket.svg'
 import tail from '../../assets/images/tail.svg'
 import { FC } from 'react';
 import Answer from './answer'
-import { useState, useEffect } from 'react';
 import users_online from '../../../public/data/users';
 
 
@@ -17,6 +16,9 @@ interface InputProps {
     date?: any;
     count?: any;
     answer?: any;
+    sendedFile?: any;
+    fileSelected?: any;
+    fileSelectedResult?: any;
   }
 
 const Message:FC<InputProps> = ({
@@ -25,19 +27,17 @@ const Message:FC<InputProps> = ({
     deleteMessage,
     date,
     count,
-    answer
+    answer,
+    sendedFile,
+    fileSelected,
+    fileSelectedResult
 }) => {
-    const [activeAnswer, setActiveAnswer] = useState<any>(true)
-    // useEffect(() => {
-    //     setTimeout(() => setActiveAnswer((prev: any) => prev = true), 800)
-    //   }, [item.length !== 0])
-
     return (
         <>
-            <div className="flex justify-end pl-20 pr-[51px]">
+            <div className="flex items-end flex-col justify-end pl-20 pr-[51px]">
                 {item &&
                 <div className='
-                bg-[#007AFF;] 
+                bg-[#007AFF] 
                 text-[#FFFFFF]
                 rounded-md relative py-1 px-2 pr-[15px] 
                 flex justify-between flex-col 
@@ -77,9 +77,21 @@ const Message:FC<InputProps> = ({
                     </div>
                 </div>
                 }
+                {  
+                sendedFile &&        
+                <div className='
+                    flex items-center justify-end
+                    '>  
+                    <img  
+                    className='max-w-[60px] py-[10px] flex ' 
+                    id="blah" 
+                    src={fileSelectedResult} 
+                    alt="предпросмотр загружаемого фото" />
+                                        {fileSelected.name}          
+                </div>
+                }
             </div> 
             {
-            // activeAnswer &&
             users_online
             .map((user: any) => 
                 {

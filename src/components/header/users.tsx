@@ -2,7 +2,6 @@ import Image from 'next/image'
 import users_online from '../../../public/data/users'
 
 const Users = () => {
-
     return (
         <div className='flex items-center'>
             {

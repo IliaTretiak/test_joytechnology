@@ -2,7 +2,7 @@ import Message from './message'
 import Footer from './footer'
 import useStore from '../../stores/store'
 import { useState } from 'react';
-import { ChangeEvent } from "react";
+import { ChangeEvent, MouseEvent } from "react";
 import dayjs from 'dayjs'
 
 const Bubble = () => {
@@ -11,7 +11,10 @@ const Bubble = () => {
     const [editer, setEditer] = useState<any>()
     const [answer, setAnswer] = useState<any>()
     const [activeEdites, setActiveEdites] = useState<any>(false)
-    const [file, setFile] = useState([])
+    const [fileSelected, setFileSelected] = useState<File>() 
+    const [fileSelectedResult, setFileSelectedResult] = useState<any>() 
+    const [preview, setPreview] = useState<any>(false)
+    const [sendedFile, setSendedFile] = useState<any>(false)
 
     const { messager, addMessage, correctMessage, removeMessage } = useStore(); 
 
@@ -34,26 +37,21 @@ const Bubble = () => {
         activeEdites ? correctMessage(editer, message, dayjs().format('HH:mm A'), answer) : (message.length !== 0 ? addMessage(message, dayjs().format('HH:mm A')) : " ")
         setMessage("");
         setActiveEdites(false)
+        setPreview(false)
+        fileSelected ? setSendedFile(true) : ""
     }
 
-    const data = new FormData();
-    const handleChange = (e: ChangeEvent) => {
-        const input = (e.target as HTMLInputElement).files[0];
-        // const result = (e.target as HTMLInputElement).result
-        // const size = input.size
-        data.append("file", input);
-        // setFile(input.name);
+    const formData = new FormData();
+    const handleImageChange = function (e: ChangeEvent) {
+        const fileList = (e.target as HTMLInputElement).files;
+        if (!fileList) return;
+        setFileSelected(fileList[0]);
+        setFileSelectedResult(URL.createObjectURL(fileList[0]));
+        setPreview(true)
+        if (fileSelected) {
+                formData.append("image", fileSelected, fileSelected.name);
+            }
     };
-    // const handleFilesChange = (event: ChangeEvent<HTMLInputElement>) => {
-    //     const files: File[] = event.target.files
-    //       ? Array.from(event.target.files)
-    //       : [];
-    //     // selectedFiles.handleChange(files);
-    //     // onFilesSelected?.();
-      
-    //     // fileInputRef.current && (fileInputRef.current.value = '');
-    //   };
-
     return (
         <form>
             <span className='py-[17px] flex justify-center text-sm text-[#666668] font-normal leading-loose'>
@@ -64,23 +62,30 @@ const Bubble = () => {
                     .map((item: any) => 
                     <>  
                         <Message 
-                        key={item.id}
+                        key={item}
                         count={item.id}
                         item={item.question}
                         date={item.time}
                         answer={item.answer}
                         editMessage={editMessage}
                         deleteMessage={deleteMessage}
+                        sendedFile={sendedFile}
+                        fileSelected={fileSelected}
+                        fileSelectedResult={fileSelectedResult}
                         />
                     </>
                 )
             }
-        <Footer 
-        message={message}
-        changeMessage={changeMessage}
-        sendMessage={sendMessage}
-        handleChange={handleChange}
-        />
+         
+            <Footer 
+            message={message}
+            changeMessage={changeMessage}
+            sendMessage={sendMessage}
+            handleImageChange={handleImageChange}
+            fileSelectedResult={fileSelectedResult}
+            fileSelected={fileSelected}
+            preview={preview}
+            />
         </form>
     )
 }

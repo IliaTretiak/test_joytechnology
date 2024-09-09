@@ -10,14 +10,22 @@ interface InputProps {
     sendMessage?: any;
     messager?: any;
     message?: string | undefined;
-    handleChange?: any;
+    handleImageChange?: any;
+    uploadFile?: any;
+    fileSelectedResult?: any;
+    preview?: any;
+    fileSelected?: any
   }
 
 const Footer:FC<InputProps> = ({
     changeMessage,
     sendMessage,
     message,
-    handleChange,
+    handleImageChange,
+    uploadFile,
+    fileSelectedResult,
+    preview,
+    fileSelected
 }) => {
         
         const [isHover, setisHover] = useState('');
@@ -33,38 +41,52 @@ const Footer:FC<InputProps> = ({
     return (
         <>
         <div className='pt-[60px]'>
-        <form className="">
-            <fieldset className='flex justify-between items-center gap-4 w-[auto] border-2 border-solid shadow-sm border-[#E5E5EA] h-12 '>
-                <img
-                className='pl-[20px]'
-                src={smile.src} alt='смайлы'>
-                </img>
-                <Input 
-                changeMessage={changeMessage}
-                message={message}
-                />
-                <div className='pr-[20px] flex gap-[16px] w-[100px]'>
-                <Upload 
-                handleChange={handleChange}
-                />
-                <button
-                onClick={sendMessage}
-                type='submit'
-                >
-                <Image
-                onMouseEnter={() => onChangeColor()} 
-                onMouseLeave={() => onChangeColorBack()}
-                width={20}
-                height={16}
-                src={`/images/plane${isHover}.svg`}
-                alt='отправить сообщение'
-                />
-                </button>
-                            {/* <input type='submit' name='submit' value='отправить' /> */}
-
-                </div>
-            </fieldset>
-        </form>
+            {  
+            preview &&        
+            <div className='
+                bg-[#f3f5f5] 
+                rounded-md 
+                flex items-center justify-end
+                '>  
+                {fileSelected.name}          
+                <img  
+                className='py-[10px] px-[30px] flex' 
+                id="blah" 
+                src={fileSelectedResult} 
+                alt="предпросмотр загружаемого фото" />
+            </div>
+            }
+            <form>
+                <fieldset className='flex justify-between items-center gap-4 w-[auto] border-2 border-solid shadow-sm border-[#E5E5EA] h-12 '>
+                    <img
+                    className='pl-[20px]'
+                    src={smile.src} alt='смайлы'>
+                    </img>
+                    <Input 
+                    changeMessage={changeMessage}
+                    message={message}
+                    />
+                    <div className='pr-[20px] flex gap-[16px] w-[100px]'>
+                    <Upload 
+                    handleChange={handleImageChange}
+                    uploadFile={uploadFile}
+                    />
+                    <button
+                    onClick={sendMessage}
+                    type='submit'
+                    >
+                    <Image
+                    onMouseEnter={() => onChangeColor()} 
+                    onMouseLeave={() => onChangeColorBack()}
+                    width={20}
+                    height={16}
+                    src={`/images/plane${isHover}.svg`}
+                    alt='отправить сообщение'
+                    />
+                    </button>
+                    </div>
+                </fieldset>
+            </form>
         </div>
 
   
