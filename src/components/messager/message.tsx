@@ -16,9 +16,9 @@ interface InputProps {
     date?: any;
     count?: any;
     answer?: any;
-    sendedFile?: any;
-    fileSelected?: any;
-    fileSelectedResult?: any;
+    name?: any,
+    src?: any
+    file?: boolean,
   }
 
 const Message:FC<InputProps> = ({
@@ -28,14 +28,15 @@ const Message:FC<InputProps> = ({
     date,
     count,
     answer,
-    sendedFile,
-    fileSelected,
-    fileSelectedResult
+    name,
+    src,
+    file
 }) => {
     return (
         <>
             <div className="flex items-end flex-col justify-end pl-20 pr-[51px]">
                 {item &&
+                <>
                 <div className='
                 bg-[#007AFF] 
                 text-[#FFFFFF]
@@ -49,7 +50,7 @@ const Message:FC<InputProps> = ({
                 
                     <div className="flex justify-between">
                         <div
-                        onClick={() => editMessage(item, count, answer)}
+                        onClick={() => editMessage(item, count, answer, name, src, file)}
                         >
                             <img className='cursor-pointer' width={16} height={8} src={pen.src} alt='редактировать сообщение'></img>
                         </div>
@@ -76,19 +77,21 @@ const Message:FC<InputProps> = ({
                         </div>
                     </div>
                 </div>
-                }
-                {  
-                sendedFile &&        
-                <div className='
-                    flex items-center justify-end
-                    '>  
-                    <img  
-                    className='max-w-[60px] py-[10px] flex ' 
-                    id="blah" 
-                    src={fileSelectedResult} 
-                    alt="предпросмотр загружаемого фото" />
-                                        {fileSelected.name}          
-                </div>
+                {
+                        file === true ?         
+                        <div className='
+                        flex items-center justify-end
+                        '>  
+                        <img  
+                        className='max-w-[60px] py-[10px] flex ' 
+                        id="blah" 
+                        src={src} 
+                        alt="предпросмотр загружаемого фото" />
+                        {name}          
+                        </div>
+                        : ""
+                    }
+                </>
                 }
             </div> 
             {

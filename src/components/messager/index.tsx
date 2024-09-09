@@ -2,7 +2,7 @@ import Message from './message'
 import Footer from './footer'
 import useStore from '../../stores/store'
 import { useState } from 'react';
-import { ChangeEvent, MouseEvent } from "react";
+import { ChangeEvent } from "react";
 import dayjs from 'dayjs'
 
 const Bubble = () => {
@@ -12,7 +12,9 @@ const Bubble = () => {
     const [answer, setAnswer] = useState<any>()
     const [activeEdites, setActiveEdites] = useState<any>(false)
     const [fileSelected, setFileSelected] = useState<File>() 
-    const [fileSelectedResult, setFileSelectedResult] = useState<any>() 
+    const [fileSelectedResult, setFileSelectedResult] = useState<any>('') 
+    const [nameAddedFile, setNameAddedFile] = useState<any>() 
+    const [addedFile, setAddedFile] = useState<any>() 
     const [preview, setPreview] = useState<any>(false)
     const [sendedFile, setSendedFile] = useState<any>(false)
 
@@ -26,16 +28,24 @@ const Bubble = () => {
     const deleteMessage = (count: any) => {
         removeMessage(messager.findIndex(el => el.id === count))
     };
-    const editMessage = (item: any, count: any, answer: any) => {
+    const editMessage = (item: any, count: any, answer: any, name: any, src: any, file: boolean) => {
         setEditer(messager.findIndex(el => el.id === count))
         setMessage(item);
         setAnswer(answer)
+        setNameAddedFile(name)
+        setFileSelectedResult(src)
+        setAddedFile(file)
         setActiveEdites(true)
     };
     const sendMessage = (e: { preventDefault: () => void; }) : any => {
         e.preventDefault(); 
-        activeEdites ? correctMessage(editer, message, dayjs().format('HH:mm A'), answer) : (message.length !== 0 ? addMessage(message, dayjs().format('HH:mm A')) : " ")
+        activeEdites 
+        ? correctMessage(editer, message, dayjs().format('HH:mm A'), answer, nameAddedFile, fileSelectedResult, addedFile) 
+        : ((message.length !== 0 || fileSelected) 
+            ? addMessage(message, dayjs().format('HH:mm A'), (fileSelected ? fileSelected.name : ""), (fileSelectedResult ? fileSelectedResult : ""), (fileSelectedResult.length !== 0 ? true : false)) 
+            : " ")
         setMessage("");
+        setFileSelectedResult("")
         setActiveEdites(false)
         setPreview(false)
         fileSelected ? setSendedFile(true) : ""
@@ -67,11 +77,11 @@ const Bubble = () => {
                         item={item.question}
                         date={item.time}
                         answer={item.answer}
+                        name={item.file_name}
+                        src={item.file_src}
+                        file={item.file}
                         editMessage={editMessage}
                         deleteMessage={deleteMessage}
-                        sendedFile={sendedFile}
-                        fileSelected={fileSelected}
-                        fileSelectedResult={fileSelectedResult}
                         />
                     </>
                 )

@@ -46,11 +46,11 @@ const Footer:FC<InputProps> = ({
             <div className='
                 bg-[#f3f5f5] 
                 rounded-md 
-                flex items-center justify-end
+                flex items-center justify-end gap-2
                 '>  
                 {fileSelected.name}          
                 <img  
-                className='py-[10px] px-[30px] flex' 
+                className='py-[10px] pr-[30px] flex' 
                 id="blah" 
                 src={fileSelectedResult} 
                 alt="предпросмотр загружаемого фото" />
