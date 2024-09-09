@@ -40,7 +40,7 @@ const Footer:FC<InputProps> = ({
 
     return (
         <>
-        <div className='pt-[60px]'>
+        <div className='pt-[30px]'>
             {  
             preview &&        
             <div className='

@@ -62,8 +62,11 @@ const Bubble = () => {
                 formData.append("image", fileSelected, fileSelected.name);
             }
     };
-    return ( 
-        <form className='flex justify-between flex-col'>
+    return (
+        <form>
+            {/* <span className='py-[17px] flex justify-center text-sm text-[#666668] font-normal leading-loose'>
+                {dayjs().format('MM/DD/YYYY')}
+            </span> */}
             {
                 messager
                     .map((item: any) => 

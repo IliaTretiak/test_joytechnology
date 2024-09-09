@@ -33,7 +33,7 @@ const Message:FC<InputProps> = ({
     file
 }) => {
     return (
-        <>
+        <div className='flex flex-col gap-5'>
             <div className="flex items-end flex-col justify-end pl-20 pr-[51px]">
                 {item &&
                 <>
@@ -109,7 +109,7 @@ const Message:FC<InputProps> = ({
                     />)      
                 }) 
             } 
-        </>
+        </div>
     )
 
 }
