@@ -66,7 +66,7 @@ const Footer:FC<InputProps> = ({
                     changeMessage={changeMessage}
                     message={message}
                     />
-                    <div className='pr-[20px] flex gap-[16px] w-[100px]'>
+                    <div className='pr-[0px] flex gap-[16px] w-[100px]'>
                     <Upload 
                     handleChange={handleImageChange}
                     uploadFile={uploadFile}
