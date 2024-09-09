@@ -22,20 +22,20 @@ const Answer:FC<MessageProps> = ({
             <div>
             <Image
             src={src}
-            width={24}
-            height={24}
+            width={32}
+            height={32}
             alt="Picture of the author"
             />  
             <Image
             src={indicator.src}
-            className='absolute left-[67px] top-4'
+            className='absolute left-[75px] top-[22px]'
             width={10}
             height={10}
             alt="онлайн индикатор"
             />
             </div>
             <img
-            className='absolute bottom-[30px] left-[83px]'
+            className='absolute bottom-[31px] left-[92px]'
             src={tail.src}
             width={16}
             height={16}
