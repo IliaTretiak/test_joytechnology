@@ -64,9 +64,6 @@ const Bubble = () => {
     };
     return (
         <form>
-            {/* <span className='py-[17px] flex justify-center text-sm text-[#666668] font-normal leading-loose'>
-                {dayjs().format('MM/DD/YYYY')}
-            </span> */}
             {
                 messager
                     .map((item: any) => 
