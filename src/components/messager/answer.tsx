@@ -7,8 +7,8 @@ import { FC } from 'react';
 interface MessageProps {
     name?: string | undefined;
     post?: string | undefined;
-    src?: any;
-    date?: any;
+    src?: string | undefined;
+    date?: string | undefined;
   }
 
 const Answer:FC<MessageProps> = ({

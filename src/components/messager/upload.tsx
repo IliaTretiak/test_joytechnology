@@ -5,8 +5,7 @@ const Upload = ({
     uploadFile
 }) => {
     return (
-            // <div>
-                <label htmlFor="photo">    
+            <label htmlFor="photo">    
                 <input 
                 type="file"
                 className='hidden'
@@ -21,9 +20,7 @@ const Upload = ({
                 onChange={handleChange}
                 src={dog.src} alt='загрузить изображение'>
                 </img>
-                </label>
-            // </div>
-    
+            </label>    
     )
 }
 export default Upload;
